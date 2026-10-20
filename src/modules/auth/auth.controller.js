@@ -84,5 +84,12 @@ export const loginController=async(req,res,next)=>{
     next(error);
   }
 };
-     
-  
+    
+export const logoutController = async (req, res, next) => {
+  try {
+    res.clearCookie("access_token");  
+    return sendSuccess(res, 200, "Logout successful", null);}
+    catch (error) {
+      next(error);
+    }
+}

@@ -3,10 +3,10 @@ import argon2 from "argon2";
 export const createPost = async (data) => {
   return db.orm.public.Post.create(data);
 };
-export const getPosts = async () => {
+export const getPosts = async (limit,offset) => {
   return await db.orm.public.Post.where({ isPublic: true })
     .include("comments")
-    .orderBy((p) => p.createdAt.desc())
+    .orderBy((p) => p.createdAt.desc()).limit(limit).offset(offset)
     .all();
 };
 

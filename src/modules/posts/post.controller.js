@@ -33,19 +33,44 @@ export const addPost = async (req, res, next) => {
     next(error);
   }
 };
+
 export const getAllPostController = async (req, res, next) => {
   try {
-   const allPost = await getPosts();
+    const page = Number(req.query.page ?? 1);
+    const limit = Number(req.query.limit ?? 10);
+
+    if (
+      !Number.isInteger(page) ||
+      !Number.isInteger(limit) ||
+      page < 1 ||
+      limit < 1 ||
+      limit > 100
+    ) {
+      return sendError(
+        res,
+        400,
+        "Page must be positive and limit must be between 1 and 100"
+      );
+    }
+
+    const offset = (page - 1) * limit;
+
+    const allPost = await getPosts(limit, offset);
 
     if (allPost.length === 0) {
       return sendError(res, 404, "Post Not Found");
     }
 
-    return sendSuccess(res, 200, "Post fetched successfully", allPost);
+    return sendSuccess(res, 200, "Posts fetched successfully", {
+      page,
+      limit,
+      posts: allPost,
+    });
   } catch (error) {
     next(error);
   }
 };
+
 export const getMyPostsController = async (req, res, next) => {
   try {
     const { isPublic } = req.query;
