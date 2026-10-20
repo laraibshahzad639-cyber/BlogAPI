@@ -10,15 +10,7 @@ import { authenticationMiddleware } from "../../middleware/auth.middleware.js";
 
 const routes = Router();
 
-// routes.get("/me", authenticationMiddleware, getMyProfileController);
 
-// routes.patch("/me", authenticationMiddleware, updateMyProfileController);
-
-// routes.patch(
-//   "/me/password",
-//   authenticationMiddleware,
-//   updateMyPasswordController
-// );
 
 /**
  * @openapi

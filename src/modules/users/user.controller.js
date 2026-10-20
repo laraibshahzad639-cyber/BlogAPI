@@ -35,7 +35,6 @@ export const updateMyProfileController = async (req, res) => {
   return sendSuccess(res, 200, "Name updated", safeUser);
 };
 
-// PATCH /api/users/me/password
 export const updateMyPasswordController = async (req, res) => {
   const { currentPassword, newPassword, confirmPassword } = req.body;
 

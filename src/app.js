@@ -11,11 +11,14 @@ import { routes } from "./modules/users/user.routes.js";
 import { router } from "./modules/posts/post.routes.js";
 import { routers } from "./modules/comment/comment.routes.js";
 import cors from "cors";
+import helmet from "helmet";
+import morgan from "morgan";
 
 dotenv.config();
 
 const app = express();
-
+app.use(helmet());
+app.use(morgan("dev"));
 app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
 app.use(cookieParser());
 app.use(express.json());

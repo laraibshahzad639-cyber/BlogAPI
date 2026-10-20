@@ -46,7 +46,6 @@ export const updateCommentController = async (req, res, next) => {
       return sendError(res, 400, "Comment content is required");
     }
 
-    // Debugging: check the comment ID and logged-in user
     console.log("Comment ID:", id);
     console.log("Logged-in user ID:", userId);
 

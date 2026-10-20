@@ -164,10 +164,4 @@ router.delete("/:id", authenticationMiddleware, deletePostController);
 
 
 
-// router.post("/", authenticationMiddleware, addPost);
-// router.get("/", authenticationMiddleware, getAllPostController);
-// router.get("/me", authenticationMiddleware,getMyPostsController);
-// router.get("/:id",authenticationMiddleware,getPostByIdController)
-// router.patch("/:id", authenticationMiddleware, updatePostController);
-// router.delete("/:id", authenticationMiddleware, deletePostController);
 export { router };

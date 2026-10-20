@@ -15,16 +15,7 @@ import { deletePostController } from "../posts/post.controller.js";
 
 const routers = Router();
 
-// routers.post("/:postId/comments",authenticationMiddleware, addCommentController);
 
-// routers.patch("/:id",authenticationMiddleware,updateCommentController);
-
-// routers.delete("/:id", authenticationMiddleware, deleteCommentController);
-// routers.get(
-//   "/:postId/comments",
-//   authenticationMiddleware,
-//   getCommentsController
-// );
 /**
  * @openapi
  * /api/comments/{postId}/comments:
